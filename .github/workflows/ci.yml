@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify release
+        run: npm run verify:release
+
+      - name: Verify repo shape
+        run: npm run verify:repo
+
+      - name: Clean local state from verify run
+        run: bash tools/release/clean-local-state.sh --yes
+
+      - name: Verify export cleanliness
+        run: npm run verify:export-clean

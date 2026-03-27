@@ -10,8 +10,10 @@
     "mode:advanced:on": "node ./scripts/mode.mjs enable-advanced",
     "mode:advanced:off": "node ./scripts/mode.mjs disable-advanced",
     "verify:release": "node ./scripts/verify-release.mjs",
-    "verify:export": "node ./scripts/export-check.mjs",
-    "export:standalone": "node ./scripts/export-standalone.mjs",
-    "materialize:repo": "node ./scripts/materialize-standalone-repo.mjs"
+    "verify:export-clean": "node ./tools/release/export-check.mjs --root .",
+    "verify:repo": "node ./tools/release/repo-ready-check.mjs --root .",
+    "verify:publish": "node ./tools/release/repo-publish-check.mjs --root .",
+    "export:standalone": "node ./tools/release/export-standalone.mjs",
+    "materialize:repo": "node ./tools/release/materialize-standalone-repo.mjs"
   }
 }

@@ -61,13 +61,37 @@ Experimental:
 
 ## Install
 
-Current macOS alpha bootstrap:
+### Codex
+
+Current local alpha bootstrap:
 
 ```bash
 bash scripts/install.sh
 ```
 
-Quick checks after install:
+When this repository is published to GitHub, the intended host install shape is:
+
+```bash
+npx skills add <github-owner>/layered-web-access -a codex
+```
+
+### Claude Code
+
+The same repository is designed to work with Claude Code through the same root `SKILL.md`.
+
+Current local alpha bootstrap:
+
+```bash
+bash scripts/install.sh
+```
+
+When this repository is published to GitHub, the intended host install shape is:
+
+```bash
+npx skills add <github-owner>/layered-web-access -a claude-code
+```
+
+### Post-install checks
 
 ```bash
 bash scripts/doctor.sh
@@ -103,6 +127,12 @@ Current limitation:
 
 The product promise stays the same across both hosts. Only tool mapping changes.
 
+See also:
+
+- [SUPPORT_MATRIX.md](SUPPORT_MATRIX.md)
+- [SECURITY.md](SECURITY.md)
+- [PRIVACY.md](PRIVACY.md)
+
 Host-facing shell entrypoints:
 
 - `bash scripts/install.sh`
@@ -119,23 +149,46 @@ Host-facing shell entrypoints:
 node scripts/verify-release.mjs
 ```
 
+Repository-shape check:
+
+```bash
+node tools/release/repo-ready-check.mjs --root .
+node tools/release/export-check.mjs --root .
+```
+
+## Maintainer release flow
+
+Maintainer-only release tools are kept under `tools/release/`.
+
+Note:
+
+- `node scripts/verify-release.mjs` creates local `runtime/` and `audit/` state as part of its checks.
+- Clean local state before running export-clean or before publishing a standalone tree.
+
 Before publishing this folder as a standalone repository:
 
 ```bash
-bash scripts/clean-local-state.sh --yes
-node scripts/export-check.mjs
+bash tools/release/clean-local-state.sh --yes
+node tools/release/export-check.mjs --root .
+node tools/release/repo-publish-check.mjs --root .
 ```
 
 Or export a clean snapshot without mutating the working release tree:
 
 ```bash
-bash scripts/export-standalone.sh
+bash tools/release/export-standalone.sh
 ```
 
 Or materialize a stable standalone repository candidate directory:
 
 ```bash
-bash scripts/materialize-standalone-repo.sh
+bash tools/release/materialize-standalone-repo.sh
+```
+
+Then initialize Git inside that standalone directory:
+
+```bash
+bash scripts/init-git-repo.sh /absolute/path/to/standalone-repo
 ```
 
 ## Runtime data
