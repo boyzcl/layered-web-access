@@ -5,6 +5,45 @@ Safe-first web access skill for `Codex` and `Claude Code`.
 - Repository: [boyzcl/layered-web-access](https://github.com/boyzcl/layered-web-access)
 - Current channel: `0.1.0-alpha.1`
 
+## 中文简介
+
+这是一个面向 `Codex` 和 `Claude Code` 的安全优先网页访问 Skill。
+
+它的目标不是“默认就拿到最强浏览器权限”，而是：
+
+- 先用最低风险路径完成公开网页任务
+- 优先走搜索、静态抓取和站点专用提取器
+- 只在确实需要时，才进入显式开启的高级模式
+- 高级模式也只面向公开内容和有限动态页，不把登录后读取当作正式承诺
+
+如果你要的是“尽量稳定地处理高价值公开内容”，它是为这个目标设计的。  
+如果你要的是“接管日常浏览器、默认复用登录态、强行打穿高挑战站点”，那不是这个项目的产品定位。
+
+## Project background
+
+This project was shaped by lessons learned from several existing browser-access approaches, then deliberately narrowed into a safer product boundary.
+
+Key reference directions:
+
+- [`eze-is/web-access`](https://github.com/eze-is/web-access)
+  - taught the value of task-oriented routing and using stronger browser access only when simpler paths fail
+- [`epiral/bb-browser`](https://github.com/epiral/bb-browser)
+  - showed the value of isolated browser profiles, structured browser control, and richer browser operations
+- [`teng-lin/agent-fetch`](https://github.com/teng-lin/agent-fetch)
+  - demonstrated the usefulness of stronger HTTP impersonation and multi-strategy extraction between plain static fetch and full browser control
+
+This repository does **not** copy those projects as-is.
+
+Instead, it applies a different product choice:
+
+- safer defaults
+- explicit mode boundaries
+- isolated profile only
+- public-content-first support
+- no formal logged-in browsing promise
+
+That tradeoff means the capability ceiling is intentionally lower than some high-permission browser tools, while the default risk is also much lower.
+
 This project is designed for:
 
 - public web research
@@ -46,6 +85,23 @@ Experimental:
 - stable support for `x.com`
 - stable support for `platform.openai.com`
 - direct use of the user's daily browser profile
+
+## Security posture
+
+The central design choice of this repository is simple:
+
+- do not make high-risk browser power the default
+
+Concretely, that means:
+
+- default mode stays on lower-risk public-web paths
+- advanced mode must be explicitly enabled
+- browser work uses isolated profiles
+- the user's daily browser profile is out of scope
+- logged-in reading and OAuth are not part of the formal promise
+
+For the full security rationale, see [SECURITY.md](SECURITY.md).  
+For privacy and local-state rules, see [PRIVACY.md](PRIVACY.md).
 
 ## Modes
 
