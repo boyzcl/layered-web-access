@@ -1,5 +1,7 @@
 # Layered Web Access
 
+[简体中文说明](README.zh-CN.md)
+
 Safe-first web access skill for `Codex` and `Claude Code`.
 
 - Repository: [boyzcl/layered-web-access](https://github.com/boyzcl/layered-web-access)
