@@ -1,7 +1,16 @@
 {
   "name": "layered-web-access-skill",
+  "description": "Safe-first web access skill for Codex and Claude Code.",
   "version": "0.1.0-alpha.1",
   "private": true,
+  "homepage": "https://github.com/boyzcl/layered-web-access",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boyzcl/layered-web-access.git"
+  },
+  "bugs": {
+    "url": "https://github.com/boyzcl/layered-web-access/issues"
+  },
   "type": "module",
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.mjs",

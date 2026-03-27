@@ -2,6 +2,9 @@
 
 Safe-first web access skill for `Codex` and `Claude Code`.
 
+- Repository: [boyzcl/layered-web-access](https://github.com/boyzcl/layered-web-access)
+- Current channel: `0.1.0-alpha.1`
+
 This project is designed for:
 
 - public web research
@@ -69,10 +72,10 @@ Current local alpha bootstrap:
 bash scripts/install.sh
 ```
 
-When this repository is published to GitHub, the intended host install shape is:
+GitHub install shape:
 
 ```bash
-npx skills add <github-owner>/layered-web-access -a codex
+npx skills add boyzcl/layered-web-access -a codex
 ```
 
 ### Claude Code
@@ -85,10 +88,10 @@ Current local alpha bootstrap:
 bash scripts/install.sh
 ```
 
-When this repository is published to GitHub, the intended host install shape is:
+GitHub install shape:
 
 ```bash
-npx skills add <github-owner>/layered-web-access -a claude-code
+npx skills add boyzcl/layered-web-access -a claude-code
 ```
 
 ### Post-install checks
