@@ -2,4 +2,4 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-exec "$SCRIPT_DIR/../tools/release/export-standalone.sh" "$@"
+exec bash "$SCRIPT_DIR/../tools/release/export-standalone.sh" "$@"

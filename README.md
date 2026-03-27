@@ -86,6 +86,22 @@ Experimental:
 - stable support for `platform.openai.com`
 - direct use of the user's daily browser profile
 
+## Known unavailable or deferred major sites
+
+For clarity, the following major sites or page families are currently outside the formal support set, or were tested and then intentionally deferred:
+
+- `x.com`
+  - high-challenge / login-heavy behavior; not a formal first-version target
+- `platform.openai.com`
+  - challenge-heavy and OAuth-adjacent; not a formal first-version target
+- `zhihu.com/question`
+  - tested, but current public-path strategies did not produce stable usable content
+- `reuters.com` article pages
+  - tested, but current public-path strategies did not produce stable usable content
+
+These examples are included to make the current boundary explicit.  
+They are not “forgotten”; they are intentionally outside the present product promise.
+
 ## Security posture
 
 The central design choice of this repository is simple:
