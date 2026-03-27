@@ -36,3 +36,37 @@ Before proposing release-facing changes, run:
 node scripts/verify-release.mjs
 ```
 
+## Maintainer Git workflow
+
+For this repository, treat the local Git working copy itself as the public source of truth.
+
+Recommended order:
+
+1. edit in this repository
+2. run:
+
+```bash
+node tools/release/repo-ready-check.mjs --root .
+```
+
+3. then do Git operations sequentially:
+
+```bash
+git status --short
+git add ...
+git commit -m "..."
+git push
+```
+
+If a release tag is needed:
+
+```bash
+git tag -a <tag> -m "<tag>"
+git push origin <tag>
+```
+
+Important:
+
+- do not run Git write operations in parallel
+- do not treat installed copies under `~/.codex/skills/...` as development directories
+- if you change public release-facing files here, back-sync the mirrored `release/` skeleton in the research workspace
