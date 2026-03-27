@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0-alpha.1",
+  "channel": "alpha-candidate",
+  "hosts": [
+    "Codex",
+    "Claude Code"
+  ],
+  "scope": {
+    "public_content_only": true,
+    "limited_dynamic_pages": true,
+    "logged_in_reading_supported": false,
+    "high_challenge_sites_supported": false
+  },
+  "release_readiness": {
+    "default_mode": "candidate",
+    "advanced_mode": "candidate_with_guided_dependency_preparation",
+    "open_source_repo_shape": "candidate"
+  },
+  "known_gaps": [
+    "automatic_node_provisioning_not_finished",
+    "managed_chromium_download_not_finished",
+    "final_semver_strategy_after_alpha_not_fixed"
+  ]
+}
+

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Layered Web Access"
+  short_description: "Safe-first public web access for Codex."
+  default_prompt: "Use $layered-web-access to read public web content safely and escalate only when static paths are not enough."
+
+policy:
+  allow_implicit_invocation: true
+

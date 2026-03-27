@@ -1,0 +1,17 @@
+{
+  "name": "layered-web-access-skill",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bootstrap": "node ./scripts/bootstrap.mjs",
+    "self-check": "node ./scripts/self-check.mjs",
+    "mode:status": "node ./scripts/mode.mjs status",
+    "mode:advanced:on": "node ./scripts/mode.mjs enable-advanced",
+    "mode:advanced:off": "node ./scripts/mode.mjs disable-advanced",
+    "verify:release": "node ./scripts/verify-release.mjs",
+    "verify:export": "node ./scripts/export-check.mjs",
+    "export:standalone": "node ./scripts/export-standalone.mjs",
+    "materialize:repo": "node ./scripts/materialize-standalone-repo.mjs"
+  }
+}
